@@ -8,3 +8,5 @@ Follow instructions for setting up backend here first: https://github.com/claire
 `yarn start`
 
 client runs on localhost:3000
+
+<img src='./screenshot.jpg' />
