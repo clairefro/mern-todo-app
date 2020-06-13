@@ -6,8 +6,8 @@ import { useInput } from '../hooks/useInput';
 const CreateTodo = ({}) => {
   const { value: description, bind: bindDescription, reset: resetDescription } = useInput('');
   const { value: responsible, bind: bindResponsible, reset: resetResponsible } = useInput('');
-  const [done, setDone] = useState(false);
   const [priority, setPriority] = useState('Low');
+  const [done, setDone] = useState(false);
 
   const onSubmit = e => {
     e.preventDefault();
