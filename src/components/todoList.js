@@ -14,7 +14,7 @@ const TodoList = () => {
       .catch((err)=> {
         console.log(err)
       })
-  },[])
+  },[todos])
 
   const todoList = () => {
     return todos.map((t, i) => (
