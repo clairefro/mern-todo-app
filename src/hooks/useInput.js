@@ -12,6 +12,6 @@ export const useInput = initialValue => {
       onChange: event => {
         setValue(event.target.value);
       }
-    }
+    } 
   };
 };

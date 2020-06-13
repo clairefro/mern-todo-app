@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import { useInput } from '../hooks/useInput';
 
 const CreateTodo = ({}) => {
   const { value: description, bind: bindDescription, reset: resetDescription } = useInput('');
   const { value: responsible, bind: bindResponsible, reset: resetResponsible } = useInput('');
-  const { value: done, bind: bindDone, reset: resetDone } = useInput(false);
+  const [done, setDone] = useState(false);
   const [priority, setPriority] = useState('Low');
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log({
+
+    const newTodo = {
       description,
       responsible,
-      done,
       priority,
-    });
+      done
+    }
+    console.log(newTodo)
+
+    axios.post('http://localhost:4000/todos/add', newTodo)
+      .then(res => console.log(res.data));
+
     resetAllFields();
   }
 
   const resetAllFields = () => {
     resetDescription();
     resetResponsible();
-    resetDone();
+    setDone(false);
     setPriority('Low');
   }
 
